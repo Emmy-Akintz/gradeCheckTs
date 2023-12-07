@@ -8,7 +8,9 @@ const rl = readline.createInterface({
 rl.question('Enter a score: ', (answer: number) => {
     const score = answer
 
-    if (!isNaN(score)) {
+    let validityCheck: boolean = (score >= 0) && (score <= 100)
+
+    if (validityCheck) {
         const result = getGrade(score)
         console.log(`For a score of ${score}, the grade is ${result}`);
     } else {
@@ -19,6 +21,9 @@ rl.question('Enter a score: ', (answer: number) => {
 })
 
 function getGrade(score: number): string {
+    
+    // let validityCheck: boolean = (score >= 0) && (score <= 100)
+    // console.log(validityCheck);
     
     let grade: string
 
